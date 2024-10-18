@@ -1,6 +1,6 @@
 using System;
 
-namespace ScratchMini {
+public namespace ScratchMini {
     class Main
     {
         static void Main()
@@ -29,10 +29,16 @@ namespace ScratchMini {
 
     }
 
-    class Player : GridObject
+    public class Player : GridObject
     {
-        String image;
-        CardinalDirection cardinalDirection;
+        public String image;
+        public CardinalDirection cardinalDirection;
+
+        public Player()
+        {
+            image = "defaultImage";
+            cardinalDirection = cardinalDirection.East;
+        }
     }
 
     class Field : IGridObject
