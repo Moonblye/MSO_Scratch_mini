@@ -11,7 +11,11 @@ namespace ScratchMini {
     class Program
     {
         String name;
-        List <commands
+        List <ICommand> Commands;
+        Field currentField;
+
+        void Execute();
+        
     }
 
     interface ICommandLine
@@ -20,7 +24,8 @@ namespace ScratchMini {
         Program advanced;
         Program extreme;
         Program loaded;
-        
+        Program Import()
+        void ExecuteProgram();
 
     }
 
@@ -30,7 +35,10 @@ namespace ScratchMini {
         CardinalDirection cardinalDirection;
     }
 
-    class Field{}
+    class Field : IGridObject
+    {
+        IGridObject[,] Grid;
+    }
 
     interface IGridObject{}
     class EmptySpace : IGridObject{}
@@ -46,14 +54,13 @@ namespace ScratchMini {
     interface ICommand
     {
         String name;
-        Field executeCommand(){}
+        Field executeCommand(Field field){}
     }
 
     class RepeatCommand : ICommand {
     String name;
     Int times;
     List<ICommand> commands
-
     public Field executeCommand(Field field){}
 
     }
